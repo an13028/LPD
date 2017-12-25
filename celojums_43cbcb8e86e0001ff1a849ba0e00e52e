@@ -1,0 +1,41 @@
+{
+  "_id": "43cbcb8e86e0001ff1a849ba0e00e52e",
+  "_rev": "10-07fd9a00ba0db6ca48f74720b0f44450",
+  "type": "celojums",
+  "galamerka_valsts": "Somija",
+  "celojumi": [
+    {
+      "celojuma_id": 2,
+      "izbrauksanas_vieta": "Rīga",
+      "galamerkis": "Helsinki",
+      "galamerka_valsts": "Somija",
+      "cena": 120,
+      "celojuma_datums": "10-12-2017",
+      "atbrauksanas_laiks": "10:00",
+      "gida_id": 15,
+      "transporta_id": "2",
+      "grupa": {
+        "grupas_id": 11,
+        "nosaukums": "Rīga-Helsinki",
+        "izveidosanas_datums": "08-11-2017",
+        "min": 25,
+        "max": 70,
+        "statuss": "aktīva",
+        "piezime": "",
+        "celojuma_id": 5,
+        "gida_id": 15,
+        "gids": {
+          "gida_id": 15,
+          "vards": "Raivis",
+          "uzvards": "Losevs",
+          "personas_kods": "081184-20365",
+          "telefons": "+371 27853187",
+          "e-pasts": "losevs@gmail.com",
+          "adrese": "Rīga, Visvalža iela 4",
+          "strada_no": "10-09-2014",
+          "strada_lidz": ""
+        }
+      }
+    }
+  ]
+}
