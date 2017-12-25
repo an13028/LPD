@@ -1,0 +1,20 @@
+{
+  "_id": "9fc535df7028019ae8a9d7434a01936d",
+  "_rev": "6-e668a3d42520323ec50048ce3dd0ed1b",
+  "type": "transports",
+  "numurs": "BF29872786",
+  "pedeja_tehniska_apskate": "16092015",
+  "tehniskas_apskates_statuss": "A: aktīvs",
+  "sedvietu_skaits": 55,
+  "transporta_veids": "autobuss",
+  "vaditaja_id": 3,
+  "vaditajs": {
+    "vaditaja_id": 3,
+    "vards": "Kārlis",
+    "uzvards": "Pūce",
+    "personas-kods": "171269-10105",
+    "adrese": "Kurzemes prospekts 5",
+    "e-pasts": "puce@gmail.com",
+    "darba_uzsaksanas_datums": "12-08-2016"
+  }
+}
