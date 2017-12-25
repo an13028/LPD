@@ -1,0 +1,297 @@
+{
+  "_id": "_design/LPD",
+  "_rev": "20-bee2cee922a0a179e2f5d496a354472b",
+  "lpd": {
+    "views": {
+      "byname1": {
+        "map": "/**\n * Map function - use `emit(key, value)1 to generate rows in the output result.\n * @link http://docs.couchdb.org/en/latest/couchapp/ddocs.html#reduce-and-rereduce-functions\n *\n * @param {object} doc - Document Object.\n */\nfunction(doc) {\n  \n}",
+        "reduce": "/**\n * NOTE:\n * Built-in reduce functions should be preferred over writing a custom one.\n * Replace the contents of the file with one of these strings:\n *   _sum\n *   _count\n *   _stats\n **/\n\n/**\n * Reduce function\n * @link http://docs.couchdb.org/en/latest/couchapp/ddocs.html#reduce-and-rereduce-functions\n *\n * @param {(array|null)} keys – Array of pairs docid-key for related map function\n * result. Always null if rereduce is running (has true value).\n * @param {array} values – Array of map function result values.\n * @param {boolean} rereduce – Boolean sign of rereduce run.\n *\n * @returns {object} Reduced values\n **/\nfunction(keys, values, rereduce) {\n  if (rereduce) {\n\n  } else {\n\n  }\n}"
+      },
+      "byname": {
+        "map": "/**\n * Map function - use `emit(key, value)1 to generate rows in the output result.\n * @link http://docs.couchdb.org/en/latest/couchapp/ddocs.html#reduce-and-rereduce-functions\n *\n * @param {object} doc - Document Object.\n */\nfunction(doc) {\n  \n}",
+        "reduce": "/**\n * NOTE:\n * Built-in reduce functions should be preferred over writing a custom one.\n * Replace the contents of the file with one of these strings:\n *   _sum\n *   _count\n *   _stats\n **/\n\n/**\n * Reduce function\n * @link http://docs.couchdb.org/en/latest/couchapp/ddocs.html#reduce-and-rereduce-functions\n *\n * @param {(array|null)} keys – Array of pairs docid-key for related map function\n * result. Always null if rereduce is running (has true value).\n * @param {array} values – Array of map function result values.\n * @param {boolean} rereduce – Boolean sign of rereduce run.\n *\n * @returns {object} Reduced values\n **/\nfunction(keys, values, rereduce) {\n  if (rereduce) {\n\n  } else {\n\n  }\n}"
+      }
+    }
+  },
+  "vendor": {
+    "couchapp": {
+      "metadata": {
+        "name": "couchapp",
+        "fetch_uri": "git://github.com/couchapp/vendor.git",
+        "description": "official couchapp vendor"
+      }
+    }
+  },
+  "language": "javascript",
+  "contacts": {
+    "views": {
+      "byname": {
+        "map": "/**\n * Map function - use `emit(key, value)1 to generate rows in the output result.\n * @link http://docs.couchdb.org/en/latest/couchapp/ddocs.html#reduce-and-rereduce-functions\n *\n * @param {object} doc - Document Object.\n */\nfunction(doc) {\n  \n}",
+        "reduce": "/**\n * NOTE:\n * Built-in reduce functions should be preferred over writing a custom one.\n * Replace the contents of the file with one of these strings:\n *   _sum\n *   _count\n *   _stats\n **/\n\n/**\n * Reduce function\n * @link http://docs.couchdb.org/en/latest/couchapp/ddocs.html#reduce-and-rereduce-functions\n *\n * @param {(array|null)} keys – Array of pairs docid-key for related map function\n * result. Always null if rereduce is running (has true value).\n * @param {array} values – Array of map function result values.\n * @param {boolean} rereduce – Boolean sign of rereduce run.\n *\n * @returns {object} Reduced values\n **/\nfunction(keys, values, rereduce) {\n  if (rereduce) {\n\n  } else {\n\n  }\n}"
+      }
+    }
+  },
+  "views": {
+    "cel": {
+      "map": "function(doc) {    for (var i in doc.celojumi) {   if (doc.celojumi.cena > 0) {      \n emit(doc.galamerka_valsts, doc.celojumi.cena);    }   }}"
+    },
+    "klients": {
+      "map": "function(doc) {\n    if (doc.vards && doc.registresanas_datums) {\n\t\temit(doc.vards,doc);\n\t\t}\n\t\t}"
+    },
+    "recent-items": {
+      "map": "function(doc) {\n  if (doc.created_at) {\n      var p = doc.profile || {};\n      emit(doc.created_at, {\n          message:doc.message,\n          gravatar_url : p.gravatar_url,\n          nickname : p.nickname,\n          name : doc.name\n      });\n  }\n};"
+    },
+    "gids": {
+      "map": "function(doc) {\n\t  if (doc.strada_no) {\n\t\t  emit(doc.vards,doc);   \n\t\t  }\n\t\t  }"
+    },
+    "byname": {
+      "map": "function(doc) {\n    if (doc.name) { \n        emit(doc.name,doc);\n    }\n}"
+    },
+    "vaditajs": {
+      "map": "function(doc) {\n    if (doc.vaditaja_id) {\n\t\temit(doc.vaditaja_id,doc);\n\t\t}\n}"
+    },
+    "vilciens": {
+      "map": "function(doc) {\n    if (doc.transporta_veids == \"vilciens\") {\n        emit(doc.numurs, {sedvietu_skaits: doc.sedvietu_skaits, apskate: doc.tehniskas_apskates_statuss});\n    }\n}"
+    },
+    "autobuss": {
+      "map": "function(doc) {\n    if (doc.transporta_veids == \"autobuss\") {\n        emit(doc.numurs, {sedvietu_skaits: doc.sedvietu_skaits, apskate: doc.tehniskas_apskates_statuss});\n    }\n}"
+    },
+    "klients-reg": {
+      "map": "function(doc) {   for (var i in doc.klients) {     \n  emit(doc.klients[i].uzvards, doc.klients[i].registresanas_datums);   }}"
+    },
+    "tr": {
+      "map": "function(doc) {\n    if (doc.type == \"transports\") {\n        emit(doc.numurs, {sedvietu_skaits: doc.sedvietu_skaits, apskate: doc.transporta_veids});\n    }\n}"
+    },
+    "celojums": {
+      "map": "function(doc) {   if (doc.galamerka_valsts) {emit(doc.galamerka_valsts,doc);    }}"
+    },
+    "grupa": {
+      "map": "function(doc) {\n\t   if (doc.nosaukums) {\n\t\t   emit(doc.nosaukums,doc);\n\t\t   }}"
+    },
+    "pramis": {
+      "map": "function(doc) {\n    if (doc.transporta_veids == \"prāmis\") {\n        emit(doc.numurs, {sedvietu_skaits: doc.sedvietu_skaits, apskate: doc.tehniskas_apskates_statuss});\n    }\n}"
+    },
+    "piedalisanas": {
+      "map": "function(doc) {\n\t   if (doc.transakcijas_nr) {\n\t\t   emit(doc.transakcijas_nr,doc);\n\t\t   }\n   }"
+    },
+    "grupa-sk": {
+      "map": "function(doc) {    if (doc.max > 20) {        emit(doc.nosaukums, doc.min);    }}"
+    },
+    "new": {
+      "map": "function (doc) {\n  emit(doc._id, 1);\n}"
+    },
+    "lidmasina": {
+      "map": "function(doc) {\n    if (doc.transporta_veids == \"lidmašīna\") {\n        emit(doc.numurs, {sedvietu_skaits: doc.sedvietu_skaits, apskate: doc.tehniskas_apskates_statuss});\n    }\n}"
+    },
+    "transports": {
+      "map": "function(doc) {    if (doc.pedeja_tehniska_apskate && doc.numurs) {emit(doc.numurs,doc);    }}"
+    },
+    "mikroautobuss": {
+      "map": "function(doc) {\n\tif (doc.transporta_veids == \"mikroautobuss\") \n\t{\n        emit(doc.numurs, {sedvietu_skaits: doc.sedvietu_skaits, apskate: doc.tehniskas_apskates_statuss});\n\t\t}\n}"
+    }
+  },
+  "lists": {},
+  "updates": {},
+  "couchapp": {
+    "manifest": [
+      "contacts/",
+      "contacts/views/",
+      "contacts/views/byname/",
+      "contacts/views/byname/map.js",
+      "contacts/views/byname/reduce.js",
+      "couchapp.json",
+      "language",
+      "lists/",
+      "lpd/",
+      "lpd/views/",
+      "lpd/views/byname/",
+      "lpd/views/byname/map.js",
+      "lpd/views/byname/reduce.js",
+      "lpd/views/byname1/",
+      "lpd/views/byname1/map.js",
+      "lpd/views/byname1/reduce.js",
+      "README.md",
+      "shows/",
+      "updates/",
+      "vendor/",
+      "vendor/couchapp/",
+      "vendor/couchapp/metadata.json",
+      "views/",
+      "views/autobuss/",
+      "views/autobuss/map.js",
+      "views/byname/",
+      "views/byname/map.js",
+      "views/cel/",
+      "views/cel/map.js",
+      "views/celojums/",
+      "views/celojums/map.js",
+      "views/gids/",
+      "views/gids/map.js",
+      "views/grupa/",
+      "views/grupa/map.js",
+      "views/grupa-sk/",
+      "views/grupa-sk/map.js",
+      "views/klients/",
+      "views/klients/map.js",
+      "views/klients-reg/",
+      "views/klients-reg/map.js",
+      "views/lidmasina/",
+      "views/lidmasina/map.js",
+      "views/mikroautobuss/",
+      "views/mikroautobuss/map.js",
+      "views/new/",
+      "views/new/map.js",
+      "views/piedalisanas/",
+      "views/piedalisanas/map.js",
+      "views/pramis/",
+      "views/pramis/map.js",
+      "views/recent-items/",
+      "views/recent-items/map.js",
+      "views/tr/",
+      "views/tr/map.js",
+      "views/transports/",
+      "views/transports/map.js",
+      "views/vaditajs/",
+      "views/vaditajs/map.js",
+      "views/vilciens/",
+      "views/vilciens/map.js"
+    ],
+    "signatures": {
+      "vendor/couchapp/loader.js": "5c771689c7faebedd7be76f2e1638c6f",
+      "index.html": "1bc09fab6ed380219cb8c0f07d55c68f",
+      "vendor/couchapp/md5.js": "765de38d07dbee73ee1859037cdb79f7",
+      "klients.html": "21c95a60ac7ed01a1ed685706ae5787a",
+      "add.html": "f4a0b790d065a9c1e72c81da0b020a56",
+      "vendor/couchapp/jquery.couchForm.js": "7add5db2e78544a4eac7e8d2251de651",
+      "vendor/couchapp/jquery.pathbinder.js": "65ecfa230f539d62f36938aaebed4ac1",
+      "vendor/couchapp/jquery.couch.klients.js": "fa8ade778e0639da50e694e86d0cb5b5",
+      "script/app.js": "49b8595c2821f8ce154d883863fd8e86",
+      "vendor/couchapp/jquery.mustache.js": "0bfbc929b6d5500aacfa860c783550d8",
+      "vendor/couchapp/jquery.couchProfile.js": "448acd8b2187d25a3fe2e10c6019f5ce",
+      "vendor/couchapp/jquery.couchLogin.js": "3367af394890c9e648fd4f2539a4d719",
+      "vendor/couchapp/jquery.couch.app.js": "d395b6e8c9781a78230050b90dd87936",
+      "recordedit.js": "e9d153e25b8a5d787885b9958d10b657",
+      "style/main.css": "d76a19365833c6c8615b45804f59f84a",
+      "vendor/couchapp/jquery.couch.app.util.js": "9fc84685dfa7b35237239916ae406583"
+    },
+    "name": "Basic CouchApp",
+    "objects": {},
+    "description": "CouchApp with changes feed and form support."
+  },
+  "README": "## Generated CouchApp\n\nThis is meant to be an example CouchApp and to ship with most of the CouchApp goodies.\n\nClone with git:\n\n    git clone git://github.com/couchapp/example.git\n    cd example\n\nInstall with \n    \n    couchapp push . http://localhost:5984/example\n\nor (if you have security turned on)\n\n    couchapp push . http://adminname:adminpass@localhost:5984/example\n  \nYou can also create this app by running\n\n    couchapp generate example && cd example\n    couchapp push . http://localhost:5984/example\n\nDeprecated: *couchapp generate proto && cd proto*\n\n\n## Todo\n\n* factor CouchApp Commonjs to jquery.couch.require.js\n* use $.couch.app in app.js\n\n## License\n\nApache 2.0",
+  "shows": {},
+  "_attachments": {
+    "recordedit.js": {
+      "content_type": "application/javascript",
+      "revpos": 17,
+      "digest": "md5-QhUCbVdCfMEKDVQbbLZNnw==",
+      "length": 4616,
+      "stub": true
+    },
+    "index.html": {
+      "content_type": "text/html",
+      "revpos": 20,
+      "digest": "md5-E4TSRqLu9RhBLQRt5qqVPw==",
+      "length": 3014,
+      "stub": true
+    },
+    "vendor/couchapp/md5.js": {
+      "content_type": "application/javascript",
+      "revpos": 1,
+      "digest": "md5-TTZkH3sh7Xv43JDk4cLlLw==",
+      "length": 8656,
+      "stub": true
+    },
+    "klients.html": {
+      "content_type": "text/html",
+      "revpos": 6,
+      "digest": "md5-iBYZYcde5FKAiug9EawL8Q==",
+      "length": 989,
+      "stub": true
+    },
+    "add.html": {
+      "content_type": "text/html",
+      "revpos": 6,
+      "digest": "md5-tCxrmBGEukWVNbmseul7uQ==",
+      "length": 322,
+      "stub": true
+    },
+    "vendor/couchapp/jquery.pathbinder.js": {
+      "content_type": "application/javascript",
+      "revpos": 6,
+      "digest": "md5-oIL3ELZzYan/OGWf3OpXhQ==",
+      "length": 4879,
+      "stub": true
+    },
+    "vendor/couchapp/jquery.couch.klients.js": {
+      "content_type": "application/javascript",
+      "revpos": 6,
+      "digest": "md5-XAH3nIcFISstxD6BnK01EA==",
+      "length": 1477,
+      "stub": true
+    },
+    "script/app.js": {
+      "content_type": "application/javascript",
+      "revpos": 1,
+      "digest": "md5-AGwlaDMO9/AWUYpk/5YQDw==",
+      "length": 2273,
+      "stub": true
+    },
+    "vendor/couchapp/loader.js": {
+      "content_type": "application/javascript",
+      "revpos": 6,
+      "digest": "md5-2/Zq6kQog6li/hWDOrnNrw==",
+      "length": 457,
+      "stub": true
+    },
+    "vendor/couchapp/jquery.mustache.js": {
+      "content_type": "application/javascript",
+      "revpos": 1,
+      "digest": "md5-mJmOV1KJPdosazE3YctU6Q==",
+      "length": 9466,
+      "stub": true
+    },
+    "vendor/couchapp/jquery.couchLogin.js": {
+      "content_type": "application/javascript",
+      "revpos": 1,
+      "digest": "md5-aWl7Dq5QVjWmZdsMvBRWZQ==",
+      "length": 3911,
+      "stub": true
+    },
+    "vendor/couchapp/jquery.couchProfile.js": {
+      "content_type": "application/javascript",
+      "revpos": 1,
+      "digest": "md5-qW2CUQAtBWMTqkJkxrpxLA==",
+      "length": 3743,
+      "stub": true
+    },
+    "vendor/couchapp/jquery.couch.app.js": {
+      "content_type": "application/javascript",
+      "revpos": 1,
+      "digest": "md5-44cMqLPv92yNGu7Z4PLQ4w==",
+      "length": 7258,
+      "stub": true
+    },
+    "vendor/couchapp/jquery.couchForm.js": {
+      "content_type": "application/javascript",
+      "revpos": 1,
+      "digest": "md5-PGqciP1Z2+pr4qqbkfid6w==",
+      "length": 1261,
+      "stub": true
+    },
+    "style/main.css": {
+      "content_type": "text/css",
+      "revpos": 1,
+      "digest": "md5-1FgSTzv9+uiRduTtqjLpgw==",
+      "length": 866,
+      "stub": true
+    },
+    "vendor/couchapp/jquery.couch.app.util.js": {
+      "content_type": "application/javascript",
+      "revpos": 1,
+      "digest": "md5-LbLdxL+44tAmWcnjnFDOtQ==",
+      "length": 3051,
+      "stub": true
+    }
+  }
+}
