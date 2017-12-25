@@ -1,0 +1,33 @@
+{
+  "_id": "9fc535df7028019ae8a9d7434a007791",
+  "_rev": "5-57cf23745af141f10a29d4ef05bc6e42",
+  "type": "grupa",
+  "grupas_id": 8,
+  "nosaukums": "Rīga-Prāga",
+  "izveidosanas_datums": "18-09-2017",
+  "min": 10,
+  "max": 50,
+  "statuss": "aktīva",
+  "piezime": "",
+  "celojuma_id": 12,
+  "gida_id": 4,
+  "klients": [
+    {
+      "klienta_id": 2,
+      "vards": "Anna",
+      "uzvards": "Krumiņa",
+      "personas_kods": "171190-10111",
+      "telefons": "+371 22053174",
+      "e-pasts": "anna.krumina@gmail.com",
+      "adrese": "Rīga, Ieriķu iela 7",
+      "registresanas_datums": "15-10-2017",
+      "piedalisanas": {
+        "transakcijas_nr": "SE63236513548924006",
+        "summa": 25.99,
+        "datums": "15-08-2017",
+        "grupas_id": 8,
+        "klienta_id": 2
+      }
+    }
+  ]
+}
