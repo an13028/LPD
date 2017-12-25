@@ -1,0 +1,13 @@
+{
+  "_id": "9fc535df7028019ae8a9d7434a066415",
+  "_rev": "2-8ff13d69b7b29c46d470f3574fb0ccf8",
+  "type": "klients",
+  "klienta_id": 15,
+  "vards": "Sanita",
+  "uzvards": "Zariņa",
+  "personas_kods": "140796-10257",
+  "telefons": "+371 22320070",
+  "e-pasts": "zarina@gmail.com",
+  "adrese": "Rīga, Kr. Barona iela 9",
+  "registresanas_datums": "10-08-2017"
+}
